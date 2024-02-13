@@ -28,7 +28,7 @@ class MiddleWidget extends StatelessWidget {
               margin: const EdgeInsets.only(top: 10),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: pinkIsh,
+                  backgroundColor: Colors.black,
                   fixedSize: const Size(150, 50),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8)),

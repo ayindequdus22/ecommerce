@@ -8,7 +8,7 @@ class Favorite extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
         child:  Center(
-      child: Text("Favorite", style: TextStyle(color: pinkIsh, fontSize: 40)),
+      child: Text("Favorite", style: TextStyle(color: bluish, fontSize: 40)),
     ));
   }
 }

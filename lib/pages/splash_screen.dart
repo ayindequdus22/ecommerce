@@ -39,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen>
         ),
         builder: (context, double value, child) {
           return Container(
-            color: pinkIsh,
+            color: Colors.black,
             width: double.infinity,
             height: double.infinity,
             child: Center(
@@ -52,20 +52,20 @@ class _SplashScreenState extends State<SplashScreen>
                         padding: EdgeInsets.only(right: value * 60),
                         child:const Text(
                           "Welcome",
-                          style: TextStyle(
+                          style: TextStyle(color: Colors.white,
                               fontSize: 30, fontWeight: FontWeight.w500),
                         ),
                       ),
                       const Text(
                         ",",
-                        style: TextStyle(
+                        style: TextStyle(color: Colors.white,
                             fontSize: 30, fontWeight: FontWeight.w500),
                       ),
                       Padding(
                         padding: EdgeInsets.only(left: value * 20),
                         child:const Text(
                           "Anteqs",
-                          style: TextStyle(
+                          style: TextStyle(color: Colors.white,
                               fontSize: 30, fontWeight: FontWeight.w500),
                         ),
                       ),

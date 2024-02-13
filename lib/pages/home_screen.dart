@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:personaleco/pages/cart_page.dart';
+import 'package:personaleco/pages/search_page.dart';
 import 'package:personaleco/widgets/product.dart';
 import 'package:personaleco/widgets/favorite.dart';
 import '../widgets/home_page.dart';
@@ -16,7 +18,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    page = [const HomePage(), const Favorite(), const Product()];
+    page = const[ HomePage(),SearchPage(),Favorite(),CartPage(),Product()];
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
   }
 
   @override
@@ -36,49 +44,46 @@ class _HomeScreenState extends State<HomeScreen> {
               )
             ]),
         body: page[selectedIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          onTap: (index) {
-            setState(() {
-              selectedIndex = index;
-            });
-          },
-
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.black,
-          selectedLabelStyle:const TextStyle(
-            color: Colors.white,
-          ),
-          unselectedLabelStyle:const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-            color: Colors.black,
-          ),
-          // showSelectedLabels: false,
-          // showUnselectedLabels: false,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                color: selectedIndex == 0 ? Colors.white : Colors.black,
-              ),
-              label: "Home",
+      bottomNavigationBar: Container(
+        margin:const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+        decoration: BoxDecoration( color: Colors.black,borderRadius: BorderRadius.circular(10)),
+       height: 70,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            IconButton(
+              icon:const Icon(Icons.home),
+              onPressed: () => _onItemTapped(0),
+              color: selectedIndex == 0 ? Colors.white : Colors.grey,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.favorite,
-                color: selectedIndex == 1 ? Colors.white : Colors.black,
-              ),
-              label: "Favorite",
+            IconButton(
+              icon:const Icon(Icons.search),
+              onPressed: () => _onItemTapped(1),
+              color: selectedIndex == 1 ? Colors.white : Colors.grey,
+            ), 
+             IconButton(
+                  icon:const Icon(Icons.favorite),
+                  onPressed: () => _onItemTapped(2),
+                  color: selectedIndex == 2 ? Colors.white : Colors.grey,
+           
             ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.shopping_bag_rounded,
-                color: selectedIndex == 2 ? Colors.white : Colors.black,
-              ),
-              label: "Product",
+             IconButton(
+                  icon:const Icon(Icons.shopping_cart),
+                  onPressed: () => _onItemTapped(3),
+                  color: selectedIndex == 3 ? Colors.white : Colors.grey,
+           
             ),
+            IconButton(
+                  icon:const Icon(Icons.person),
+                  onPressed: () => _onItemTapped(4),
+                  color: selectedIndex == 4 ? Colors.white : Colors.grey,
+           
+            ),
+               
           ],
         ),
-        );
+      ),
+    );
   }
 }

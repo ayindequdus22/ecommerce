@@ -11,7 +11,7 @@ class Overview extends StatelessWidget {
     return Padding(
       padding:
           const EdgeInsets.only(right: 10.0, top: 10.0, bottom: 23, left: 10.0),
-      child: Container(
+      child: SizedBox(
         height: 600,
         child: GridView.builder(
             itemCount: productsData.length,
@@ -52,12 +52,12 @@ class Overview extends StatelessWidget {
                                 child: Text(
                                   productsData[index].price.toString(),
                                   style: const TextStyle(
-                                      color: pinkIsh, fontSize: 18),
+                                      color: bluish, fontSize: 18),
                                 ),
                               ),
                               ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor: pinkIsh,
+                                    backgroundColor: bluish,
                                     fixedSize: const Size(150, 50),
                                     shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(8)),
@@ -69,12 +69,10 @@ class Overview extends StatelessWidget {
                                       },
                                     ));
                                   },
-                                  child: Container(
-                                    child: const Text(
-                                      "Order Now",
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 18),
-                                    ),
+                                  child: const Text(
+                                    "Order Now",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 18),
                                   ))
                             ],
                           ),

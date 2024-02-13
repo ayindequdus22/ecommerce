@@ -10,7 +10,7 @@ class Product extends StatelessWidget {
         child:  Center(
       child: Text(
         "Cart",
-        style: TextStyle(color: pinkIsh, fontSize: 40),
+        style: TextStyle(color: bluish, fontSize: 40),
       ),
     ));
   }

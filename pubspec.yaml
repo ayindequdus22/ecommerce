@@ -34,7 +34,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   convex_bottom_bar: ^3.2.0
-
+  flutter_onboarding_slider: ^1.0.11
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -58,6 +58,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - images/e-shop.png
     - images/image-2.jpg
     - images/image-1.jpg
     - images/image-4.jpg
