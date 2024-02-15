@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:personaleco/color.dart';
 import 'package:personaleco/pages/cart_page.dart';
 import 'package:personaleco/pages/search_page.dart';
 import 'package:personaleco/widgets/product.dart';
@@ -30,20 +31,38 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            leading: const Icon(Icons.dehaze_outlined),
-            title: const Text("Anteqs e-Shop"),
-            actions: [
-              Padding(
-                padding: const EdgeInsets.only(right: 10.0),
-                child: IconButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/cart');
-                    },
-                    icon: const Icon(Icons.shopping_cart)),
-              )
-            ]),
-        body: page[selectedIndex],
+      
+     appBar: AppBar(
+  elevation: 10, // Adjust the elevation value as per your requirement
+  shadowColor: const Color.fromARGB(97, 0, 0, 0),
+  title: const Text(
+    "E-Shop",
+  ),
+  actions: [
+    Container(
+      margin:const EdgeInsets.only(right: 10),
+      width: MediaQuery.of(context).size.width * .7,
+      height: 50,
+      child: const TextField(
+        decoration: InputDecoration(
+          hintText: 'E-mail',
+          filled: true,
+          suffixIcon: Icon(Icons.camera_alt_outlined, color: bluish,),
+          fillColor: Color.fromARGB(17, 255, 255, 255),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(
+              color: Colors.black12,
+              style: BorderStyle.solid,
+            ),
+          ),
+          hintStyle: TextStyle(fontSize: 20, color: Colors.white70),
+        ),
+      ),
+    ),
+  ],
+),
+ body: page[selectedIndex],
       bottomNavigationBar: Container(
         margin:const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
         decoration: BoxDecoration( color: Colors.black,borderRadius: BorderRadius.circular(10)),

@@ -12,7 +12,7 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(physics: BouncingScrollPhysics(),
+        body: SingleChildScrollView(physics:const BouncingScrollPhysics(),
       padding: EdgeInsets.only(
         top: MediaQuery.of(context).size.height / 4.9,
       ),
@@ -114,6 +114,7 @@ class WelcomePage extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(50)),
                       color: bluish,
                     ),
+                    
                     child: CupertinoButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>const LoginPage()));

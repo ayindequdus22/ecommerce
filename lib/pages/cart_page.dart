@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:personaleco/data_class.dart';
+import 'package:provider/provider.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -6,17 +8,36 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-      automaticallyImplyLeading: true,
-      leading: Row(
+      appBar: AppBar(
+        automaticallyImplyLeading: true,
+        leading: Row(
+          children: [
+            IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.arrow_back_ios_rounded)),
+          ],
+        ),
+        // title: Text("Cart"),
+        actions: const [Icon(Icons.search)],
+      ),
+      body: Column(
+        
         children: [
-          IconButton(onPressed:(){
-            Navigator.pop(context);
-          } ,icon:const Icon(Icons.arrow_back_ios_rounded)),
+          Consumer<DataClass>(
+            builder: (context, dataClass, child) {
+              return Text('${dataClass.x}');
+            },
+          ),
+          GestureDetector(
+            onTap: (){
+              Provider.of<DataClass>(context,listen: false).increment();
+            },
+            child:const Icon(Icons.plus_one),
+          )
         ],
       ),
-      // title: Text("Cart"),
-      actions:const [Icon(Icons.search)],
-    ));
+    );
   }
 }
