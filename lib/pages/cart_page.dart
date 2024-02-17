@@ -8,20 +8,20 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: true,
-        leading: Row(
-          children: [
-            IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(Icons.arrow_back_ios_rounded)),
-          ],
-        ),
+      // appBar: AppBar(
+      //   automaticallyImplyLeading: true,
+      //   leading: Row(
+      //     children: [
+      //       IconButton(
+      //           onPressed: () {
+      //             Navigator.pop(context);
+      //           },
+      //           icon: const Icon(Icons.arrow_back_ios_rounded)),
+      //     ],
+      //   ),
         // title: Text("Cart"),
-        actions: const [Icon(Icons.search)],
-      ),
+      //   actions: const [Icon(Icons.search)],
+      // ),
       body: Column(
         
         children: [

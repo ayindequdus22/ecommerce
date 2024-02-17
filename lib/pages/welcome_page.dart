@@ -3,14 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:personaleco/color.dart';
 import 'package:personaleco/pages/login_page.dart';
 import 'package:personaleco/pages/register_page.dart';
-
-class WelcomePage extends StatelessWidget {
+// final String sope;
+class WelcomePage extends StatefulWidget {
   const WelcomePage({
     super.key,
   });
 
   @override
+  State<WelcomePage> createState() => _WelcomePageState();
+}
+
+class _WelcomePageState extends State<WelcomePage> {
+  @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
         body: SingleChildScrollView(physics:const BouncingScrollPhysics(),
       padding: EdgeInsets.only(

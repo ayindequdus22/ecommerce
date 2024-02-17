@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:personaleco/color.dart';
-import 'package:personaleco/models/models.dart';
+import 'package:personaleco/pages/search_page.dart';
 import 'package:personaleco/widgets/top_products.dart';
 import 'package:personaleco/widgets/category.dart';
 import 'package:personaleco/widgets/middle_widget.dart';
@@ -12,42 +12,65 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        // Container(
-        //   decoration: const BoxDecoration(color: pinkIsh),
-        //   child: Padding(
-        //     padding: const EdgeInsets.all(8.0),
-        //     child: Container(
-        //       height: 70,
-        //       decoration: BoxDecoration(
-        //           color: Colors.white,
-        //           borderRadius: BorderRadius.circular(10),
-        //           border: Border.all(
-        //               color: pinkIsh, width: 2, style: BorderStyle.solid)),
-        //       child: TextField(
-        //         decoration: InputDecoration(
-        //             border: OutlineInputBorder(
-        //               borderSide: BorderSide.none,
-        //               borderRadius: BorderRadius.circular(10),
-        //             ),
-        //             hintText: "Search here...",
-        //             hintStyle: const TextStyle(color: pinkIsh, fontSize: 20),
-        //             suffixIcon: const Icon(
-        //               Icons.search_sharp,
-        //               color: pinkIsh,
-        //               size: 40,
-        //             )),
-        //       ),
-        //     ),
-        //   ),
-        // ),
-         MiddleWidget(),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 20.0),
-          child: Category(),
-        ),Top_Products(),
-      ])
+    return Scaffold(
+           
+     appBar: AppBar(
+  elevation: 10, // Adjust the elevation value as per your requirement
+  shadowColor: const Color.fromARGB(97, 0, 0, 0),
+  title: const Text(
+    "E-Shop",
+  ),
+  actions: [
+    Container(
+      margin:const EdgeInsets.only(right: 10),
+      width: MediaQuery.of(context).size.width * .7,
+      height: 50,
+      child: GestureDetector(
+onTap: () {
+  print("object");
+  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+    return const SearchPage();
+  }));
+},
+        child: const TextField(
+          decoration: InputDecoration( 
+            enabled: false,
+            disabledBorder:  OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderSide: BorderSide(
+                color: Colors.black12,
+                style: BorderStyle.solid,
+              ),
+            ),
+            hintText: 'Search Here',
+            filled: true,
+            suffixIcon: Icon(Icons.camera_alt_outlined, color: bluish,),
+            fillColor: Color.fromARGB(17, 255, 255, 255),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderSide: BorderSide(
+                color: Colors.black12,
+                style: BorderStyle.solid,
+              ),
+            ),
+            hintStyle: TextStyle(fontSize: 20, color: Colors.white70),
+          ),
+        ),
+      ),
+    ),
+  ],
+),
+ 
+      body: const SingleChildScrollView(
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+   
+           MiddleWidget(),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 20.0),
+            child: Category(),
+          ),Top_Products(),
+        ])
+      ),
     );
   }
 }

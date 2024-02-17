@@ -1,17 +1,22 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:personaleco/color.dart';
 import 'package:personaleco/pages/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+  const SplashScreen({required this.userName, super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
+  final String userName;
 }
 
 class _SplashScreenState extends State<SplashScreen>
-    with SingleTickerProviderStateMixin {
+with SingleTickerProviderStateMixin
+{
+
   @override
   void initState() {
     super.initState();
@@ -50,23 +55,29 @@ class _SplashScreenState extends State<SplashScreen>
                     children: [
                       Padding(
                         padding: EdgeInsets.only(right: value * 60),
-                        child:const Text(
+                        child: const Text(
                           "Welcome",
-                          style: TextStyle(color: Colors.white,
-                              fontSize: 30, fontWeight: FontWeight.w500),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 30,
+                              fontWeight: FontWeight.w500),
                         ),
                       ),
                       const Text(
                         ",",
-                        style: TextStyle(color: Colors.white,
-                            fontSize: 30, fontWeight: FontWeight.w500),
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                            fontWeight: FontWeight.w500),
                       ),
                       Padding(
                         padding: EdgeInsets.only(left: value * 20),
-                        child:const Text(
-                          "Anteqs",
-                          style: TextStyle(color: Colors.white,
-                              fontSize: 30, fontWeight: FontWeight.w500),
+                        child: const Text(
+                          "userName",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 30,
+                              fontWeight: FontWeight.w500),
                         ),
                       ),
                     ],

@@ -37,8 +37,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
-        '/': (context) => const WelcomePage(),
-        '/cart': (context) => const CartPage(),
+        '/': (context) => const HomeScreen(),
+        '/cart': (context) =>  const SplashScreen(userName: 'Ole',),
       },
     ));
   }

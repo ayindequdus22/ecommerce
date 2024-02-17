@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:personaleco/color.dart';
 import 'package:personaleco/widgets/cancel_button.dart';
-
-
-
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -13,20 +11,20 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-    final _formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
 
-
   @override
   Widget build(BuildContext context) {
-  @override
-  void dispose() {
-    // Clean up the controller when the widget is removed from the widget tree
-    _passwordController.dispose();
-    _emailController.dispose();
-    super.dispose();
-  }
+    @override
+    void dispose() {
+      // Clean up the controller when the widget is removed from the widget tree
+      _passwordController.dispose();
+      _emailController.dispose();
+      super.dispose();
+    }
+
     return Scaffold(
         body: SingleChildScrollView(
       padding: EdgeInsets.only(
@@ -75,15 +73,16 @@ class _RegisterPageState extends State<RegisterPage> {
                         child: Column(
                           children: [
                             Container(
-                              margin: const EdgeInsets.only(top: 20, bottom: 10),
+                              margin:
+                                  const EdgeInsets.only(top: 20, bottom: 10),
                               child: TextFormField(
                                 controller: _emailController,
-                                   validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter your name';
-                  } 
-                  return null;
-                },
+                                validator: (value) {
+                                  if (!value!.endsWith("@gmail.com")) {
+                                    return 'Please enter a valid email ';
+                                  }
+                                  return null;
+                                },
                                 // onChanged: (String val) => searchTerm = val,
                                 decoration: const InputDecoration(
                                   hintText: 'E-mail',
@@ -99,7 +98,8 @@ class _RegisterPageState extends State<RegisterPage> {
                                 ),
                               ),
                             ),
-                             TextField(controller: _passwordController,
+                            TextField(
+                              controller: _passwordController,
                               decoration: const InputDecoration(
                                 hintText: 'Password',
                                 filled: true,
@@ -116,60 +116,47 @@ class _RegisterPageState extends State<RegisterPage> {
                           ],
                         ),
                       ),
-                      Container(
-                        margin: const EdgeInsets.only(top: 60, bottom: 15),
-                        width: double.infinity,
-                        height: 70,
-                        alignment: Alignment.center,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          color: bluish,
-                        ),
-                        child: const Text(
-                          'Done',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25,
-                            fontWeight: FontWeight.w500,
+                      GestureDetector(
+                        
+                          onTap: () {
+                            if (_formKey.currentState!.validate()) {
+                              // If the form is valid, display a snackbar with the form data
+                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                content: Text(
+                                  'Submitted Name: ${_passwordController.text}, Email: ${_emailController.text}',
+                                ),
+                              ));
+                            }
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.only(top: 60, bottom: 15),
+                            width: double.infinity,
+                            height: 70,
+                            alignment: Alignment.center,
+                            decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.all(Radius.circular(10)),
+                              color: bluish,
+                            ),
+                            child: const Text(
+                              'Done',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 25,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
+                      
                       const CancelButton(),
-                      // GestureDetector(
-                      //   child: Text('check'),
-                      //   onTap: () {
-                      //     print(searchTerm);
-                         
-                      //   },
-                      // )
-                      onPressed: () {
-                    if (_formKey.currentState.validate()) {
-                      // If the form is valid, display a snackbar with the form data
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            'Submitted Name: ${_nameController.text}, Email: ${_emailController.text}',
-                          ),
-                        ),
-                      );
-                    }
-                  },
-                  // onPressed: () {
-                  //   if (_formKey.currentState.validate()) {
-                  //     // If the form is valid, display a snackbar with the form data
-                  //     ScaffoldMessenger.of(context).showSnackBar(
-                  //       SnackBar(
-                  //         content: Text(
-                  //           'Submitted Name: ${_nameController.text}, Email: ${_emailController.text}',
-                  //         ),
-                  //       ),
-                  //     );
-                  //   }
-                  // },
+                     
                     ],
                   ),
                 ),
-              ])),
-    ));
+              ]),
+              )
+        )
+    );
+
   }
 }
