@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:personaleco/color.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -13,7 +12,7 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar:AppBar(
-        actions: [
+        actions: const [
 
         ],
       ) ,

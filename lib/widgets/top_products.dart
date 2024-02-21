@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:personaleco/models/top_product_models.dart';
 
 class Top_Products extends StatelessWidget {
@@ -12,7 +12,7 @@ class Top_Products extends StatelessWidget {
       margin: const EdgeInsets.symmetric(
         horizontal: 20.0,
       ),
-      child: Column(
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text('Top Products',
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600)),

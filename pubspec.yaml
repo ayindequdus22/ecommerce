@@ -81,6 +81,14 @@ flutter:
     - images/categoryImages/lingerie/lingerie (2).png
     - images/categoryImages/lingerie/lingerie (3).png
     - images/categoryImages/lingerie/lingerie (1).jpg
+
+    #heroImages
+    - images/heroImages/banner-1.jpg
+    - images/heroImages/banner-2.jpg
+    - images/heroImages/banner-3.jpg
+    #flashDeals
+    - images/flashDeals/flashDeals (1).png
+    - images/flashDeals/flashDeals (2).png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

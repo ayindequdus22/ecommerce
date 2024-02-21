@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:personaleco/color.dart';
 import 'package:personaleco/pages/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -72,9 +71,9 @@ with SingleTickerProviderStateMixin
                       ),
                       Padding(
                         padding: EdgeInsets.only(left: value * 20),
-                        child: const Text(
-                          "userName",
-                          style: TextStyle(
+                        child:  Text(
+                          widget.userName,
+                          style:const TextStyle(
                               color: Colors.white,
                               fontSize: 30,
                               fontWeight: FontWeight.w500),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Lingerie_Page extends StatelessWidget {
-  const Lingerie_Page({super.key});
+class LingeriePage extends StatelessWidget {
+  const LingeriePage({super.key});
 
   @override
   Widget build(BuildContext context) {

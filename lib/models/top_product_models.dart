@@ -4,6 +4,7 @@ class TopProductsModel {
   TopProductsModel( {required this.image,required this.name,});
 }
 
+// ignore: non_constant_identifier_names
 List<TopProductsModel> Top_ProductsData = [
   TopProductsModel(image: 'images/categoryImages/lingerie/lingerie (2).png',name:'Lingerie'),
   TopProductsModel(image: 'images/categoryImages/clothCath/cloth (2).png', name: 'Top'),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:personaleco/color.dart';
 import 'package:personaleco/pages/search_page.dart';
+import 'package:personaleco/widgets/hero.dart';
 import 'package:personaleco/widgets/top_products.dart';
 import 'package:personaleco/widgets/category.dart';
-import 'package:personaleco/widgets/middle_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -14,8 +14,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
            
-     appBar: AppBar(
-  elevation: 10, // Adjust the elevation value as per your requirement
+     appBar: AppBar(automaticallyImplyLeading: false,
+  elevation: 10, 
   shadowColor: const Color.fromARGB(97, 0, 0, 0),
   title: const Text(
     "E-Shop",
@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
       height: 50,
       child: GestureDetector(
 onTap: () {
-  print("object");
+
   Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
     return const SearchPage();
   }));
@@ -63,8 +63,7 @@ onTap: () {
  
       body: const SingleChildScrollView(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-   
-           MiddleWidget(),
+       HeroWidget(),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 20.0),
             child: Category(),

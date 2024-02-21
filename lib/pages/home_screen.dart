@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:personaleco/color.dart';
 import 'package:personaleco/pages/cart_page.dart';
-import 'package:personaleco/pages/search_page.dart';
+import 'package:personaleco/pages/flash_deals.dart';
 import 'package:personaleco/widgets/product.dart';
 import 'package:personaleco/widgets/favorite.dart';
 import '../widgets/home_page.dart';
@@ -19,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    page = const[ HomePage(),SearchPage(),Favorite(),CartPage(),Product()];
+    page = const[ HomePage(),FlashDeals(),Favorite(),CartPage(),Product()];
   }
 
   void _onItemTapped(int index) {
@@ -46,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
               color: selectedIndex == 0 ? Colors.white : Colors.grey,
             ),
             IconButton(
-              icon:const Icon(Icons.search),
+              icon:const Icon(Icons.alarm_outlined),
               onPressed: () => _onItemTapped(1),
               color: selectedIndex == 1 ? Colors.white : Colors.grey,
             ), 

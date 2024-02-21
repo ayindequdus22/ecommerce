@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:personaleco/color.dart';
 import 'package:personaleco/data_class.dart';
-import 'package:personaleco/pages/cart_page.dart';
 import 'package:personaleco/pages/home_screen.dart';
-import 'package:personaleco/pages/splash_screen.dart';
 import 'package:personaleco/pages/welcome_page.dart';
-import 'package:personaleco/widgets/home_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -37,8 +34,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
-        '/': (context) => const HomeScreen(),
-        '/cart': (context) =>  const SplashScreen(userName: 'Ole',),
+        '/': (context) =>const HomeScreen()
+        // const WelcomePage(),
+       
       },
     ));
   }

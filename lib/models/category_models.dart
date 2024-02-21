@@ -14,10 +14,10 @@ final String percent;
 
 // ignore: non_constant_identifier_names
 List<ClothCategoryModel> ClothCath = [
-  ClothCategoryModel(image: 'images/categoryImages/clothCath/cloth (1).png',text:'Clothes', percent: '-10%',page:const Clothes_Page()),
-   ClothCategoryModel(image: 'images/categoryImages/shoeCath/shoe (1).png',text:'Shoes', percent: '-5%', page: const Shoes_Page()),
-    ClothCategoryModel(image: 'images/categoryImages/lingerie/lingerie (1).png',text:'Lingerie', percent: '-25%', page: const Lingerie_Page()),
- ClothCategoryModel(image: 'images/categoryImages/clothCath/cloth (4).png',text:'Bags', percent: '-10%', page: const Bags_Page())
+  ClothCategoryModel(image: 'images/categoryImages/clothCath/cloth (1).png',text:'Clothes', percent: '-10%',page:const ClothesPage()),
+   ClothCategoryModel(image: 'images/categoryImages/shoeCath/shoe (1).png',text:'Shoes', percent: '-5%', page: const ShoesPage()),
+    ClothCategoryModel(image: 'images/categoryImages/lingerie/lingerie (1).png',text:'Lingerie', percent: '-25%', page: const LingeriePage()),
+ ClothCategoryModel(image: 'images/categoryImages/clothCath/cloth (4).png',text:'Bags', percent: '-10%', page: const BagsPage())
 ];
 
 

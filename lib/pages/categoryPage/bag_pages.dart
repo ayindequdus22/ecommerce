@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-
-class Bags_Page extends StatefulWidget {
+// ignore:camel_case_types
+class BagsPage extends StatefulWidget {
  
 
-  const Bags_Page({super.key});
+  const BagsPage({super.key});
 
   @override
-  State<Bags_Page> createState() => _Bags_PageState();
+  State<BagsPage> createState() => _BagsPageState();
 }
 
-class _Bags_PageState extends State<Bags_Page> {
+class _BagsPageState extends State<BagsPage> {
   @override
   Widget build(BuildContext context) {
     return  const Scaffold(

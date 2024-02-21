@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:personaleco/color.dart';
+import 'package:personaleco/pages/splash_screen.dart';
 import 'package:personaleco/widgets/cancel_button.dart';
 
 class LoginPage extends StatefulWidget {
@@ -10,8 +11,19 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _formKey = GlobalKey<FormState>();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController userNameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    @override
+    void dispose() {
+      // Clean up the controller when the widget is removed from the widget tree
+      passwordController.dispose();
+      userNameController.dispose();
+      super.dispose();
+    }
+
     return Scaffold(
         body: SingleChildScrollView(
       padding: EdgeInsets.only(
@@ -43,53 +55,92 @@ class _LoginPageState extends State<LoginPage> {
                 )
               ],
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 30),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: "Email",
-                  filled: true,
-                  fillColor: Color.fromARGB(17, 0, 0, 0),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      borderSide: BorderSide(
-                          color: Colors.black12, style: BorderStyle.solid)),
-                  hintStyle: TextStyle(fontSize: 20),
-                ),
+            const SizedBox(
+              height: 20,
+            ),
+            Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 10),
+                    child: TextFormField(
+                      controller: userNameController,
+                      validator: (String? value) {
+                        if (value!.isEmpty || value.length <= 3) {
+                          return 'Please enter a valid username ';
+                        }
+                        return null;
+                      },
+                      // onChanged: (String val) => searchTerm = val,
+                      decoration: const InputDecoration(
+                        hintText: 'Username',
+                        filled: true,
+                        fillColor: Color.fromARGB(17, 0, 0, 0),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            borderSide: BorderSide(
+                                color: Colors.black12,
+                                style: BorderStyle.solid)),
+                        hintStyle: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                  ),
+                  TextFormField(
+                    controller: passwordController,
+                    validator: (String? value) {
+                      if (value!.length <= 8) {
+                        return 'Password chararcters must be 8-10 long';
+                      } else {
+                        return null;
+                      }
+                    },
+                    decoration: const InputDecoration(
+                      hintText: 'Password',
+                      filled: true,
+                      fillColor: Color.fromARGB(17, 0, 0, 0),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          borderSide: BorderSide(
+                              color: Colors.black12, style: BorderStyle.solid)),
+                      hintStyle: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                ],
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 10),
-              child: TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  suffixIcon: Icon(Icons.remove_red_eye_outlined),
-                  hintText: "Password",
-                  filled: true,
-                  fillColor: Color.fromARGB(17, 0, 0, 0),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      borderSide: BorderSide(
-                          color: Colors.black12, style: BorderStyle.solid)),
-                  hintStyle: TextStyle(fontSize: 20),
+            GestureDetector(
+              onTap: () {
+                if (_formKey.currentState!.validate()) {
+                  // If the form is valid, display a snackbar with the form data
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (BuildContext context) {
+                    return SplashScreen(userName: userNameController.text);
+                  }));
+                  // ScaffoldMessenger.of(context)
+                  //     .showSnackBar(SnackBar(
+                  //   content: Text(
+                  //     'Submitted Name: ${passwordController.text}, Email: ${_emailController.text}',
+                  //   ),
+                  // ));
+                }
+              },
+              child: Container(
+                margin: const EdgeInsets.only(top: 30, bottom: 15),
+                width: double.infinity,
+                height: 70,
+                alignment: Alignment.center,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  color: bluish,
                 ),
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 30, bottom: 15),
-              width: double.infinity,
-              height: 70,
-              alignment: Alignment.center,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                color: bluish,
-              ),
-              child: const Text(
-                'Done',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 25,
-                  fontWeight: FontWeight.w500,
+                child: const Text(
+                  'Done',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),

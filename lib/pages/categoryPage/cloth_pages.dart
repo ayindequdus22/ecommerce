@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Clothes_Page extends StatelessWidget {
-  const Clothes_Page({super.key});
+class ClothesPage extends StatelessWidget {
+  const ClothesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
