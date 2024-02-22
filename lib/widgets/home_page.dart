@@ -22,6 +22,10 @@ class HomePage extends StatelessWidget {
   ),
   actions: [
     Container(
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
+        border: Border.all(
+        color: Colors.white60,
+      )),
       margin:const EdgeInsets.only(right: 10),
       width: MediaQuery.of(context).size.width * .7,
       height: 50,

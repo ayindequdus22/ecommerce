@@ -61,7 +61,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Image.asset('images/e-shop.png'),
+                              child: Image.asset('assets/images/e-shop.png'),
                             ),
                           ),
                           const Text(

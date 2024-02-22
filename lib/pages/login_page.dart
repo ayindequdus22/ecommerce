@@ -112,17 +112,10 @@ class _LoginPageState extends State<LoginPage> {
             GestureDetector(
               onTap: () {
                 if (_formKey.currentState!.validate()) {
-                  // If the form is valid, display a snackbar with the form data
                   Navigator.of(context).pushReplacement(
                       MaterialPageRoute(builder: (BuildContext context) {
                     return SplashScreen(userName: userNameController.text);
                   }));
-                  // ScaffoldMessenger.of(context)
-                  //     .showSnackBar(SnackBar(
-                  //   content: Text(
-                  //     'Submitted Name: ${passwordController.text}, Email: ${_emailController.text}',
-                  //   ),
-                  // ));
                 }
               },
               child: Container(

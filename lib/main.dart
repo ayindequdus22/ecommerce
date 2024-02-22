@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:personaleco/app_router.dart';
 import 'package:personaleco/color.dart';
 import 'package:personaleco/data_class.dart';
-import 'package:personaleco/pages/home_screen.dart';
-import 'package:personaleco/pages/welcome_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+   MyApp({super.key});
+  final AppRouter appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(create:(context)=> DataClass(),
@@ -18,8 +18,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        textTheme: const TextTheme(),
+        textTheme: const TextTheme(
+          
+        ),
         // scaffoldBackgroundColor: const Color.fromARGB(255, 250, 232, 238),
+
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.black,
           // .fromARGB(255, 231, 0, 77),
@@ -33,11 +36,13 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      routes: {
-        '/': (context) =>const HomeScreen()
-        // const WelcomePage(),
+      // onGenerate routing
+      onGenerateRoute: appRouter.onGenerateRoute,
+      // routes: {
+      //   '/': (context) =>const HomeScreen()
+      //   // const WelcomePage(),
        
-      },
+      // },
     ));
   }
 }

@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:personaleco/color.dart';
-import 'package:personaleco/models/flashdeals_models.dart';
+// import 'package:personaleco/models/flashdeals_models.dart';
 
 class FlashDeals extends StatelessWidget {
   const FlashDeals({super.key});
-
   @override
   Widget build(BuildContext context) {
+const currentPage = 0;
     return Scaffold(
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 15),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 10.0),
@@ -117,7 +118,7 @@ class FlashDeals extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                           decoration: const BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: const Text(
                         'All',
                         style: TextStyle(
@@ -169,17 +170,60 @@ class FlashDeals extends StatelessWidget {
                   ],
                 ),
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     "All Products",
                     style: TextStyle(fontSize: 24),
+                  ),
+                  Container(
+                    height: 600,
+                    child: GridView.builder(
+                      gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2, crossAxisSpacing: 10,mainAxisSpacing: 20,),itemCount: 8,
+                              itemBuilder: (context, index) {
+                                return Column(    children: [
+                        Stack(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(7),
+                              height: 400,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                boxShadow: const [
+                                  BoxShadow(
+                                      color: Colors.black54,
+                                      blurRadius: 3,
+                                      blurStyle: BlurStyle.outer)
+                                ],
+                               
+                              ),
+                              child: Container(
+                                height: 400,
+                                  decoration: const BoxDecoration(
+                                     image: DecorationImage(
+                                    image: AssetImage(
+                                        'assets/images/flashDeals/flashDeals (1).png'),fit: BoxFit.cover
+                                        ),
+                                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                                  ),
+                                
+                                ),
+                            ),
+                            Positioned(top: 0,right:0, child: Container(padding: const EdgeInsets.symmetric(vertical: 3,horizontal: 15),
+                              decoration: const BoxDecoration(color: bluish,borderRadius: BorderRadius.only(topRight: Radius.circular(10),bottomLeft: Radius.circular(10))),
+                              child:const Text("20%",style: TextStyle(fontSize: 19.0,color: Colors.white,),),))
+                          ],
+                        ),
+                     ],
+                   );
+                              },
+                   ),
                   )
                 ],
-              ),
-            
+              )
             ],
           ),
         ),

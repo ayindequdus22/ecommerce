@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:personaleco/color.dart';
 import 'package:personaleco/models/hero_models.dart';
-class HeroWidgetController {
-  final PageController pageController = PageController(initialPage: 0);
 
-  void nextPage() {
-    pageController.nextPage(
-        duration: const Duration(milliseconds: 300), curve: Curves.ease);
-  }
+final PageController pageController = PageController(initialPage: 0);
 
-  void previousPage() {
-    pageController.previousPage(
-        duration: const Duration(milliseconds: 300), curve: Curves.ease);
-  }
+void nextPage() {
+  pageController.nextPage(
+      duration: const Duration(milliseconds: 300), curve: Curves.ease);
+}
+
+void previousPage() {
+  pageController.previousPage(
+      duration: const Duration(milliseconds: 300), curve: Curves.ease);
 }
 
 class HeroWidget extends StatefulWidget {
@@ -22,11 +22,6 @@ class HeroWidget extends StatefulWidget {
 }
 
 class _HeroWidgetState extends State<HeroWidget> {
-  @override
-
-    
-  final HeroWidgetController controller = HeroWidgetController();
-
   int currentPage = 0;
 
   @override
@@ -39,7 +34,7 @@ class _HeroWidgetState extends State<HeroWidget> {
             children: [
               PageView.builder(
                 itemCount: HeroModelData.length,
-                controller: controller.pageController,
+                controller: pageController,
                 scrollDirection: Axis.horizontal,
                 onPageChanged: (index) {
                   setState(() {
@@ -48,28 +43,49 @@ class _HeroWidgetState extends State<HeroWidget> {
                 },
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
-                    width: MediaQuery.of(context).size.width,
-                    margin: const EdgeInsets.symmetric(
-                        horizontal: 15, vertical: 10),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 15, vertical: 10),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
-                            image: AssetImage(HeroModelData[index].image),
-                            fit: BoxFit.cover)),
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "E-shop",
-                          style: TextStyle(
-                              fontSize: 25, fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                  );
+                      width: MediaQuery.of(context).size.width,
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 10),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 10),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          image: DecorationImage(
+                              image: AssetImage(HeroModelData[index].image),
+                              fit: BoxFit.cover)),
+                      child: const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Big Sale",
+                              style: TextStyle(
+                                  fontSize: 35,
+                                  color: bluish,
+                                  fontFamily: "Poppins",
+                                  shadows: [
+                                    BoxShadow(
+                                      blurStyle: BlurStyle.outer,
+                                      color: Color.fromARGB(248, 0, 0, 0),
+                                      blurRadius: 4.0,
+                                      spreadRadius: 10.0,
+                                      offset: Offset(1,1)
+                                    )
+                                  ]),
+                              selectionColor: Colors.cyan,
+                            ),
+                            Text(
+                              "Up to 50% discount",
+                              style: TextStyle(fontSize: 20,
+                                shadows: [
+                                BoxShadow(
+                                  blurStyle: BlurStyle.outer,
+                                  color: Color.fromARGB(248, 0, 0, 0),
+                                  blurRadius: 4.0,
+                                )
+                              ]),
+                            ),
+                          ]));
                 },
               ),
               Positioned(
@@ -83,26 +99,22 @@ class _HeroWidgetState extends State<HeroWidget> {
                     (index) {
                       return GestureDetector(
                         onTap: () {
-                          controller.pageController.animateToPage(
+                          pageController.animateToPage(
                             index,
                             duration: const Duration(milliseconds: 300),
                             curve: Curves.ease,
                           );
                         },
                         child: Container(
-                          margin:const EdgeInsets.symmetric(horizontal: 4),
-                          width: index == currentPage
-                              ? 30
-                              : 20,
-                          height:10 ,
-                        decoration: BoxDecoration(color: index == currentPage
-                              ? Colors.blue
-                              : Colors.grey.withOpacity(0.5),
-                              borderRadius: BorderRadius.circular(10)
-                              ),
-                          
+                          margin: const EdgeInsets.symmetric(horizontal: 4),
+                          width: index == currentPage ? 30 : 20,
+                          height: 10,
+                          decoration: BoxDecoration(
+                              color: index == currentPage
+                                  ? Colors.blue
+                                  : Colors.grey.withOpacity(0.5),
+                              borderRadius: BorderRadius.circular(10)),
                         ),
-
                       );
                     },
                   ),
