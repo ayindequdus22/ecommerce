@@ -88,7 +88,20 @@ flutter:
     - assets/images/heroImages/banner-3.jpg
     #flashDeals
     - assets/images/flashDeals/flashDeals (1).png
-    - assets/images/flashDeals/flashDeals (2).png
+    - assets/images/flashDeals/flashDeals (3).png
+    - assets/images/flashDeals/flashDeals (4).png
+    - assets/images/flashDeals/flashDeals (5).png
+    - assets/images/flashDeals/flashDeals (6).png
+    - assets/images/flashDeals/flashDeals (7).png
+    - assets/images/flashDeals/flashDeals (8).png
+    - assets/images/flashDeals/flashDeals (9).png
+    - assets/images/flashDeals/flashDeals (10).png
+    - assets/images/flashDeals/flashDeals (11).png
+    - assets/images/flashDeals/flashDeals (12).png
+    - assets/images/flashDeals/flashDeals (13).png
+    - assets/images/flashDeals/flashDeals (14).png
+    - assets/images/flashDeals/flashDeals (15).png
+    
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-assets/images/#resolution-aware
 

@@ -17,9 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     @override
-    void dispose() {
-      // Clean up the controller when the widget is removed from the widget tree
-      passwordController.dispose();
+    void dispose() {passwordController.dispose();
       userNameController.dispose();
       super.dispose();
     }

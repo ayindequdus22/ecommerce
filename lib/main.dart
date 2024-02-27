@@ -36,13 +36,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      // onGenerate routing
       onGenerateRoute: appRouter.onGenerateRoute,
-      // routes: {
-      //   '/': (context) =>const HomeScreen()
-      //   // const WelcomePage(),
-       
-      // },
     ));
   }
 }

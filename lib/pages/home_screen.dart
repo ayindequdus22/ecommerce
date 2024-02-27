@@ -14,13 +14,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
-  late final List<Widget> page;
-  @override
-  void initState() {
-    super.initState();
-    page = const[ HomePage(),FlashDeals(),Favorite(),CartPage(),Product()];
-  }
+   List<Widget> page =const[ HomePage(),FlashDeals(),Favorite(),CartPage(),Product()];
 
+
+ 
   void _onItemTapped(int index) {
     setState(() {
       selectedIndex = index;
@@ -30,7 +27,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
- body: page[selectedIndex],
+ body: IndexedStack(index: selectedIndex,children: page,),
+
       bottomNavigationBar: Container(
         margin:const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
         decoration: BoxDecoration( color: Colors.black,borderRadius: BorderRadius.circular(10)),
