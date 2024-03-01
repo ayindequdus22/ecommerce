@@ -6,7 +6,7 @@ class FlashDeals extends StatelessWidget {
   const FlashDeals({super.key});
   @override
   Widget build(BuildContext context) {
-    List btnContnts = ["All","10", "20", "30", "40", "50"];
+    List btnContnts = ["All", "10", "20", "30", "40", "50"];
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -111,26 +111,25 @@ class FlashDeals extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(vertical: 20),
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 height: 60,
-                width: double.infinity,
                 decoration: BoxDecoration(
                     color: const Color.fromARGB(66, 158, 158, 158),
                     borderRadius: BorderRadius.circular(10)),
                 child: ListView.builder(
-                  itemCount: btnContnts.length,physics: const NeverScrollableScrollPhysics(),
-                  itemExtentBuilder: (index, dimensions) {return dimensions.precedingScrollExtent;},
+                  itemCount: btnContnts.length,
+                  physics: const NeverScrollableScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 18),
                       alignment: Alignment.center,
-                      // padding: EdgeInsets.only(left: double.maxFinite),
                       child: Row(
                         children: [
                           Text(
                             btnContnts[index],
                             style: const TextStyle(
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w900,
                                 color: bluish,
-                                fontSize: 18),
+                                fontSize: 20),
                           ),
                         ],
                       ),
@@ -159,7 +158,7 @@ class FlashDeals extends StatelessWidget {
                                 100))
                         .toStringAsFixed(0);
 
-                    return Container(
+                    return SizedBox(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -210,10 +209,10 @@ class FlashDeals extends StatelessWidget {
                                   ))
                             ],
                           ),
-                           Padding(
+                          Padding(
                             padding: const EdgeInsets.only(top: 8.0, bottom: 5),
                             child: Text(
-                              "This product have ${AllFlashDealsData[index].percentage}% on each sale",
+                              "This product has ${AllFlashDealsData[index].percentage}% on each sale",
                               style: const TextStyle(fontSize: 18),
                             ),
                           ),

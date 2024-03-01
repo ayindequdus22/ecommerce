@@ -1,8 +1,8 @@
+import 'package:ecommerce/widgets/cancel_button.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ecommerce/color.dart';
 import 'package:ecommerce/pages/splash_screen.dart';
-import 'package:ecommerce/widgets/cancel_button.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});

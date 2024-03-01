@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:ecommerce/data_class.dart';
-import 'package:provider/provider.dart';
-
+  
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       // appBar: AppBar(
       //   automaticallyImplyLeading: true,
       //   leading: Row(

@@ -1,7 +1,5 @@
 import 'package:ecommerce/app_router.dart';
 import 'package:ecommerce/color.dart';
-import 'package:ecommerce/pages/home_screen.dart';
-import 'package:ecommerce/widgets/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +10,7 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-  // final AppRouter appRouter = AppRouter();
+  final AppRouter appRouter = AppRouter();
     return 
     // ChangeNotifierProvider(create:(context)=> DataClass(),
     // child:
@@ -38,10 +36,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-// home: const HomePage(),
-routes: {'/':(context)=>const HomeScreen()},
-    
-   
+          onGenerateRoute: appRouter.onGenerateRoute,
     );
   }
 }

@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:ecommerce/pages/categoryPage/bag_pages.dart';
 import 'package:ecommerce/pages/categoryPage/cloth_pages.dart';
 import 'package:ecommerce/pages/categoryPage/lingerie_page.dart';
 import 'package:ecommerce/pages/categoryPage/shoes_pages.dart';
-
+import 'package:flutter/material.dart';
 class ClothCategoryModel {
   final String image;
 final String text;

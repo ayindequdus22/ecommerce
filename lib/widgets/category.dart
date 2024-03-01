@@ -50,83 +50,80 @@ class _CategoryState extends State<Category> {
           ),
        ),
         Card.outlined(
-          margin: const EdgeInsets.symmetric(horizontal: 20),
+          // margin: const EdgeInsets.symmetric(horizontal: 20,vertical: ),
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            // height: 500,
-            child: Container(
-              height: MediaQuery.of(context).size.height * .433,
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: GridView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                      childAspectRatio: 1 / 1),
-                  itemCount: ClothCath.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return GestureDetector(
-                      onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                          return ClothCath[index].page;
-                        }));
-          
-                      },
-                      child: Stack(children: [
-                        Container(
-                          padding: EdgeInsets.zero,
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage(ClothCath[index].image)),
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(10)),
-                              boxShadow: const [
-                                BoxShadow(
-                                  blurStyle: BlurStyle.outer,
-                                  color: Color.fromARGB(75, 0, 0, 0),
-                                  blurRadius: 4.0,
-                                )
-                              ]),
-                        ),
-                        Positioned(
-                            left: 4,
-                            top: 6,
-                            child: Container(
-                              padding: const EdgeInsets.all(4),
-                              decoration: const BoxDecoration(
+          padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+            height: 404,
+            // padding: const EdgeInsets.symmetric(vertical: 10),
+            child: GridView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    ),
+                itemCount: ClothCath.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return GestureDetector(
+                    onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                        return ClothCath[index].page;
+                      }));
+                    
+                    },
+                    child: Stack(children: [
+                      Container(
+                        padding: EdgeInsets.zero,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(ClothCath[index].image)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(10)),
+                            boxShadow: const [
+                              BoxShadow(
+                                blurStyle: BlurStyle.outer,
+                                color: Color.fromARGB(75, 0, 0, 0),
+                                blurRadius: 4.0,
+                              )
+                            ]),
+                      ),
+                      Positioned(
+                          left: 4,
+                          top: 6,
+                          child: Container(
+                            padding: const EdgeInsets.all(4),
+                            decoration: const BoxDecoration(
+                                color: Colors.white,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20))),
+                            child: Text(
+                              ClothCath[index].text,
+                              style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                          )),
+                      Positioned(
+                          right: 4,
+                          bottom: 6,
+                          child: Container(
+                            padding: const EdgeInsets.all(4),
+                            decoration: const BoxDecoration(
+                                color: bluish,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20))),
+                            child: Text(
+                              ClothCath[index].percent,
+                              style: const TextStyle(
                                   color: Colors.white,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20))),
-                              child: Text(
-                                ClothCath[index].text,
-                                style: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                            )),
-                        Positioned(
-                            right: 4,
-                            bottom: 6,
-                            child: Container(
-                              padding: const EdgeInsets.all(4),
-                              decoration: const BoxDecoration(
-                                  color: bluish,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20))),
-                              child: Text(
-                                ClothCath[index].percent,
-                                style: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                            ))
-                      ]),
-                    );
-                  }),
-            ),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                          ))
+                    ]),
+                  );
+                }),
           ),
         ),
       ],

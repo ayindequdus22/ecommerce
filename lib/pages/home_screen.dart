@@ -1,9 +1,9 @@
+import 'package:ecommerce/widgets/favorite.dart';
+import 'package:ecommerce/widgets/home_page.dart';
+import 'package:ecommerce/widgets/product.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/pages/cart_page.dart';
 import 'package:ecommerce/pages/flash_deals.dart';
-import 'package:ecommerce/widgets/product.dart';
-import 'package:ecommerce/widgets/favorite.dart';
-import '../widgets/home_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,7 +27,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
- body: IndexedStack(index: selectedIndex,children: page,),
+ body: page[selectedIndex],
+//  IndexedStack(index: selectedIndex,children: page,),
 
       bottomNavigationBar: Container(
         margin:const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
