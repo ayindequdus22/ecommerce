@@ -14,15 +14,15 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController passwordController = TextEditingController();
   TextEditingController userNameController = TextEditingController();
-  @override
-  Widget build(BuildContext context) {
-    @override
-    void dispose() {passwordController.dispose();
+   @override
+    void dispose() {
+      passwordController.dispose();
       userNameController.dispose();
       super.dispose();
     }
-
-    return Scaffold(
+     @override
+  Widget build(BuildContext context) {
+   return Scaffold(
         body: SingleChildScrollView(
       padding: EdgeInsets.only(
         top: MediaQuery.of(context).size.height / 2,

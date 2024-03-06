@@ -15,26 +15,32 @@ class _CategoryState extends State<Category> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-       Padding(
-         padding:  const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10),
-         child:  Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Categories',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w600)),
-               Row(
+              const Text('Categories',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400)),
+              Row(
                 children: [
-                  const Text("See All",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),),
-                    Container(
+                  const Text(
+                    "See All",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                  ),
+                  Container(
                     height: 30,
-                    width: 30,margin: const EdgeInsets.only(left: 14),
+                    width: 30,
+                    margin: const EdgeInsets.only(left: 14),
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(50)),
                       color: bluish,
                     ),
-                    
                     child: CupertinoButton(
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>const Text("olllls")));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                const Text("olllls")));
                       },
                       padding: EdgeInsets.zero,
                       child: const Icon(
@@ -48,28 +54,28 @@ class _CategoryState extends State<Category> {
               )
             ],
           ),
-       ),
+        ),
         Card.outlined(
           // margin: const EdgeInsets.symmetric(horizontal: 20,vertical: ),
           child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             height: 404,
             // padding: const EdgeInsets.symmetric(vertical: 10),
             child: GridView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                    ),
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                ),
                 itemCount: ClothCath.length,
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
-                    onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                    onTap: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
                         return ClothCath[index].page;
                       }));
-                    
                     },
                     child: Stack(children: [
                       Container(
@@ -89,19 +95,20 @@ class _CategoryState extends State<Category> {
                       ),
                       Positioned(
                           left: 4,
-                          top: 6,
+                          top: 4,
                           child: Container(
-                            padding: const EdgeInsets.all(4),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 5),
                             decoration: const BoxDecoration(
                                 color: Colors.white,
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(20))),
+                                    BorderRadius.all(Radius.circular(4))),
                             child: Text(
                               ClothCath[index].text,
                               style: const TextStyle(
                                   color: Colors.black,
                                   fontSize: 20,
-                                  fontWeight: FontWeight.w500),
+                                  fontWeight: FontWeight.w400),
                             ),
                           )),
                       Positioned(
@@ -118,7 +125,7 @@ class _CategoryState extends State<Category> {
                               style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,
-                                  fontWeight: FontWeight.w500),
+                                  fontWeight: FontWeight.w400),
                             ),
                           ))
                     ]),
@@ -127,6 +134,7 @@ class _CategoryState extends State<Category> {
           ),
         ),
       ],
+      // height: 2450,
     );
   }
 }

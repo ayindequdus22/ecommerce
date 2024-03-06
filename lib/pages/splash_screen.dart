@@ -13,9 +13,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen>
-with SingleTickerProviderStateMixin
-{
-
+    with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
@@ -71,9 +69,9 @@ with SingleTickerProviderStateMixin
                       ),
                       Padding(
                         padding: EdgeInsets.only(left: value * 20),
-                        child:  Text(
+                        child: Text(
                           widget.userName,
-                          style:const TextStyle(
+                          style: const TextStyle(
                               color: Colors.white,
                               fontSize: 30,
                               fontWeight: FontWeight.w500),

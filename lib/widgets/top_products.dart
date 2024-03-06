@@ -1,5 +1,3 @@
-// ignore_for_file: camel_case_types
-
 import 'package:flutter/material.dart';
 import 'package:ecommerce/models/top_product_models.dart';
 
@@ -12,10 +10,13 @@ class Top_Products extends StatelessWidget {
       margin: const EdgeInsets.symmetric(
         horizontal: 20.0,
       ),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text('Top Products',
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600)),
+              style: TextStyle(
+                fontSize: 25,
+              )),
           Container(
             margin: const EdgeInsets.only(top: 10),
             height: 100,
@@ -51,10 +52,16 @@ class Top_Products extends StatelessWidget {
                           ],
                         ),
                       ),
-                       Padding(
-                         padding: const EdgeInsets.only(top:8.0),
-                         child: Text(Top_ProductsData[index].name,style: const TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
-                       )
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Text(
+                          Top_ProductsData[index].name,
+                          style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      )
                     ],
                   );
                 })),

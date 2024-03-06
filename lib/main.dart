@@ -10,24 +10,15 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-  final AppRouter appRouter = AppRouter();
-    return 
-    // ChangeNotifierProvider(create:(context)=> DataClass(),
-    // child:
-     MaterialApp(
+    final AppRouter appRouter = AppRouter();
+    return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        textTheme: const TextTheme(
-          
-        ),
-        // scaffoldBackgroundColor: const Color.fromARGB(255, 250, 232, 238),
-
+        textTheme: const TextTheme(),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.black,
-          // .fromARGB(255, 231, 0, 77),
-          toolbarHeight:100,
-        
+          toolbarHeight: 100,
           iconTheme: IconThemeData(color: Colors.white, size: 35),
           titleTextStyle: TextStyle(color: Colors.white, fontSize: 25),
         ),
@@ -36,7 +27,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-          onGenerateRoute: appRouter.onGenerateRoute,
+      onGenerateRoute: appRouter.onGenerateRoute,
     );
   }
 }

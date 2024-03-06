@@ -65,25 +65,20 @@ class _HeroWidgetState extends State<HeroWidget> {
                                   fontFamily: "Poppins",
                                   shadows: [
                                     BoxShadow(
-                                      blurStyle: BlurStyle.outer,
-                                      color: Color.fromARGB(248, 0, 0, 0),
-                                      blurRadius: 4.0,
-                                      spreadRadius: 10.0,
-                                      offset: Offset(1,1)
-                                    )
+                                        blurStyle: BlurStyle.outer,
+                                        color:
+                                            Color.fromARGB(199, 255, 255, 255),
+                                        blurRadius: 4.0,
+                                        spreadRadius: 10.0,
+                                        offset: Offset(1, 1))
                                   ]),
                               selectionColor: Colors.cyan,
                             ),
                             Text(
                               "Up to 50% discount",
-                              style: TextStyle(fontSize: 20,
-                                shadows: [
-                                BoxShadow(
-                                  blurStyle: BlurStyle.outer,
-                                  color: Color.fromARGB(248, 0, 0, 0),
-                                  blurRadius: 4.0,
-                                )
-                              ]),
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
                             ),
                           ]));
                 },
